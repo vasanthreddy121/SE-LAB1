@@ -17,7 +17,6 @@
 | **FR-004** | Shelter Mapping | The system shall provide an interactive GIS map displaying shelter capacities, current resource levels, and shortage alerts. | High | **Pass:** Shortage indicators dynamically trigger when inventory crosses lower threshold.<br>**Fail:** Critical shelter stockout alerts fail to display. | Provides coordinators with actionable situational awareness across geographic zones. |
 | **FR-005** | Offline Sync | The mobile client shall allow relief volunteers to record distribution logs offline and automatically sync when connectivity is restored. | Medium | **Pass:** Offline records upload correctly to the central server without data corruption upon reconnect.<br>**Fail:** Cached offline logs are lost or overwritten. | Maintains continuous record-keeping during communication and power grid blackouts. |
 
-
 | Requirement ID | Type | Description | Priority | Acceptance Criteria | Rationale |
 | --- | --- | --- | --- | --- | --- |
 | **NFR-001** | Performance & Offline Resilience | The disaster mapping dashboard must operate under low network bandwidth conditions and support offline GIS tile caching.
@@ -40,7 +39,9 @@
 <br>**Fail:** Requests time out or throw 5xx errors during sudden mass-casualty event surges. | Rapid influxes of volunteers and shelter requests during large-scale disasters must not crash the backend. |
 | **NFR-005** | Usability & Accessibility | The user interface for field volunteers must adhere to WCAG 2.1 Level AA standards, featuring high-contrast modes and support for single-handed mobile operation. | Medium | **Pass:** 90% of novice volunteers complete an intake/distribution report in under 60 seconds during field trials.<br>
 
-<br>**Fail:** Form fields are unreadable in direct sunlight or require complex multi-step navigation. | Volunteers frequently work in harsh field conditions (e.g., bright sunlight, extreme weather) and need rapid, frictionless data entry. |
+<br>**Fail:** Form fields are unreadable in direct sunlight or require complex multi-step navigation. | Volunteers frequently work in harsh field conditions (e.g., bright sunlight, extreme weather) and need rapid, frictionless data entry. ||
+
+
 ## Deliverable 2: UML Use-Case Diagram
 Supply & Volunteer Coordinator
 ### 2.1 Visual Diagram
