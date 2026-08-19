@@ -17,33 +17,29 @@
 | **FR-004** | Shelter Mapping | The system shall provide an interactive GIS map displaying shelter capacities, current resource levels, and shortage alerts. | High | **Pass:** Shortage indicators dynamically trigger when inventory crosses lower threshold.<br>**Fail:** Critical shelter stockout alerts fail to display. | Provides coordinators with actionable situational awareness across geographic zones. |
 | **FR-005** | Offline Sync | The mobile client shall allow relief volunteers to record distribution logs offline and automatically sync when connectivity is restored. | Medium | **Pass:** Offline records upload correctly to the central server without data corruption upon reconnect.<br>**Fail:** Cached offline logs are lost or overwritten. | Maintains continuous record-keeping during communication and power grid blackouts. |
 
-### 1.2 Non-Functional Requirements (NFR)
-
 | Requirement ID | Type | Description | Priority | Acceptance Criteria | Rationale |
+| --- | --- | --- | --- | --- | --- |
+| **NFR-001** | Performance & Offline Resilience | The disaster mapping dashboard must operate under low network bandwidth conditions and support offline GIS tile caching.
 
-| **NFR-001** | Performance & Caching | The disaster mapping dashboard must operate on low-bandwidth networks and support offline GIS tile caching. | High | **Pass:** Cached map tiles load within 2 seconds on 2G/low-bandwidth networks.<br>**Fail:** Application freezes or fails without high-speed internet. | Critical disaster response operations must continue without disruption in degraded infrastructure environments. |
-| **NFR-002** | Security & Privacy | The system must enforce Role-Based Access Control (RBAC) and encrypt sensitive volunteer and shelter data using TLS 1.3 and AES-256. | High | **Pass:** Unauthorized users are denied administrative actions; PII is encrypted.<br>**Fail:** Sensitive volunteer or route data is accessible in plaintext. | Protects volunteer personally identifiable information (PII) and prevents malicious tampering with aid routes. |
-NFR-003	Availability & Reliability	The central management platform must maintain an uptime of 99.9% during active disaster response operations, with automatic failover to redundant cloud servers.	High	
+ | High | **Pass:** Map renders cached layers within 2 seconds on 2G/low-bandwidth connections.
 
-Pass: Unscheduled downtime does not exceed 43 minutes per month, and failover completes in under 30 seconds.
+<br>
 
-Fail: Platform crashes during an active emergency and requires manual restart.
-	System unavailability during an ongoing crisis directly delays critical life-saving relief dispatches.
-**NFR-004	**Scalability & Concurrency	The system shall handle up to 10,000 concurrent active users (volunteers and coordinators) and process up to 1,000 requisitions per minute without service degradation.	Medium	
+<br>**Fail:** Dashboard stalls or fails to load without high-speed internet. | Critical disaster response operations must continue without disruption in areas with damaged infrastructure.
 
-Pass: Response time remains under 1.5 seconds under peak simulated load.
+ |
+| **NFR-002** | Security & Data Protection | The system must enforce Role-Based Access Control (RBAC) and encrypt all shelter and volunteer data at rest and in transit using TLS 1.3 and AES-256. | High | **Pass:** Unauthorized users are blocked from administrative controls and all intercepted traffic is encrypted.<br>
 
-Fail: Requests time out or throw 5xx errors during sudden mass-casualty event surges.
-	Rapid influxes of volunteers and shelter requests during large-scale disasters must not crash the backend.
-  NFR-005	Usability & Accessibility	The user interface for field volunteers must adhere to WCAG 2.1 Level AA standards, featuring high-contrast modes and support for single-handed mobile operation.	Medium	
+<br>**Fail:** Sensitive volunteer PII or supply logistics data is accessible in plaintext. | Protects sensitive identity data and prevents malicious disruption of relief supply routes. |
+| **NFR-003** | Availability & Reliability | The central management platform must maintain an uptime of 99.9% during active disaster response operations, with automatic failover to redundant cloud servers. | High | **Pass:** Unscheduled downtime does not exceed 43 minutes per month, and failover completes in under 30 seconds.<br>
 
-Pass: 90% of novice volunteers complete an intake/distribution report in under 60 seconds during field trials.
+<br>**Fail:** Platform crashes during an active emergency and requires manual restart. | System unavailability during an ongoing crisis directly delays critical life-saving relief dispatches. |
+| **NFR-004** | Scalability & Concurrency | The system shall handle up to 10,000 concurrent active users (volunteers and coordinators) and process up to 1,000 requisitions per minute without service degradation. | Medium | **Pass:** Response time remains under 1.5 seconds under peak simulated load.<br>
 
-Fail: Form fields are unreadable in direct sunlight or require complex multi-step navigation.
-	Volunteers frequently work in harsh field conditions (e.g., bright sunlight, extreme weather) and need rapid, frictionless data entry.
+<br>**Fail:** Requests time out or throw 5xx errors during sudden mass-casualty event surges. | Rapid influxes of volunteers and shelter requests during large-scale disasters must not crash the backend. |
+| **NFR-005** | Usability & Accessibility | The user interface for field volunteers must adhere to WCAG 2.1 Level AA standards, featuring high-contrast modes and support for single-handed mobile operation. | Medium | **Pass:** 90% of novice volunteers complete an intake/distribution report in under 60 seconds during field trials.<br>
 
----
-
+<br>**Fail:** Form fields are unreadable in direct sunlight or require complex multi-step navigation. | Volunteers frequently work in harsh field conditions (e.g., bright sunlight, extreme weather) and need rapid, frictionless data entry. |
 ## Deliverable 2: UML Use-Case Diagram
 Supply & Volunteer Coordinator
 ### 2.1 Visual Diagram
