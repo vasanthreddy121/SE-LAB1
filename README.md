@@ -17,6 +17,7 @@
 | **FR-004** | Shelter Mapping | The system shall provide an interactive GIS map displaying shelter capacities, current resource levels, and shortage alerts. | High | **Pass:** Shortage indicators dynamically trigger when inventory crosses lower threshold.<br>**Fail:** Critical shelter stockout alerts fail to display. | Provides coordinators with actionable situational awareness across geographic zones. |
 | **FR-005** | Offline Sync | The mobile client shall allow relief volunteers to record distribution logs offline and automatically sync when connectivity is restored. | Medium | **Pass:** Offline records upload correctly to the central server without data corruption upon reconnect.<br>**Fail:** Cached offline logs are lost or overwritten. | Maintains continuous record-keeping during communication and power grid blackouts. |
 
+
 | Requirement ID | Type | Description | Priority | Acceptance Criteria | Rationale |
 | --- | --- | --- | --- | --- | --- |
 | **NFR-001** | Performance & Offline Resilience | The disaster mapping dashboard must operate under low network bandwidth conditions and support offline GIS tile caching.
